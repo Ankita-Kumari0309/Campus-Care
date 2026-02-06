@@ -27,9 +27,10 @@ const StudentDashBoard = ({ isDarkMode, setIsDarkMode }) => {
   // Fetch issues from backend
   const fetchIssues = async (token) => {
     try {
-      const res = await axios.get("http://localhost:5000/api/issues/user", {
-        headers: { Authorization: `Bearer ${token}` },
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/issues/user`, {
+      headers: { Authorization: `Bearer ${token}` },
       });
+
       setIssues(res.data);
     } catch (err) {
       console.error("Error fetching issues:", err);
@@ -39,9 +40,10 @@ const StudentDashBoard = ({ isDarkMode, setIsDarkMode }) => {
   // Fetch user profile
   const fetchProfile = async (token) => {
     try {
-      const res = await axios.get("http://localhost:5000/api/auth/me", {
-        headers: { Authorization: `Bearer ${token}` },
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/me`, {
+      headers: { Authorization: `Bearer ${token}` },
       });
+
       setUserName(res.data.name);
       setUserEmail(res.data.email);
 
@@ -58,10 +60,11 @@ const StudentDashBoard = ({ isDarkMode, setIsDarkMode }) => {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.put(
-        "http://localhost:5000/api/auth/me",
-        { name: userName, email: userEmail },
-        { headers: { Authorization: `Bearer ${token}` } }
+      `${process.env.REACT_APP_API_URL}/api/auth/me`,
+      { name: userName, email: userEmail },
+      { headers: { Authorization: `Bearer ${token}` } }
       );
+
       alert(res.data.message || "Profile updated successfully!");
       setEditMode(false);
       localStorage.setItem("name", userName);
@@ -89,18 +92,19 @@ const StudentDashBoard = ({ isDarkMode, setIsDarkMode }) => {
     if (!title || !description) return alert("Title and Description are required!");
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post(
-        "http://localhost:5000/api/issues/create",
-        { 
-          title, 
-          description, 
-          anonymous, 
-          sensitive,
-          anomalous: false,
-          confidential: false
-        },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+     const res = await axios.post(
+     `${process.env.REACT_APP_API_URL}/api/issues/create`,
+     { 
+     title, 
+     description, 
+     anonymous, 
+     sensitive,
+     anomalous: false,
+     confidential: false
+    },
+    { headers: { Authorization: `Bearer ${token}` } }
+    );
+
       alert("Issue created successfully!");
       setIssues(prev => [...prev, res.data]);
       setTitle(""); 
