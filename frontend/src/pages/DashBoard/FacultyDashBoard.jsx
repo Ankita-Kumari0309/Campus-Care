@@ -25,7 +25,7 @@ const FacultyDashboard = ({ isDarkMode, setIsDarkMode }) => {
     try {
       const token = localStorage.getItem("token");
       const headers = { Authorization: `Bearer ${token}` };
-      const res = await axios.get("http://localhost:5000/api/issues/all", { headers });
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/issues/all`, { headers });
       const solvable = res.data.filter(i => !i.sensitive); // non-sensitive issues
       setIssues(solvable);
     } catch (err) {
@@ -37,7 +37,7 @@ const FacultyDashboard = ({ isDarkMode, setIsDarkMode }) => {
   const fetchProfile = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/auth/me", {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUserName(res.data.name);
@@ -53,7 +53,7 @@ const FacultyDashboard = ({ isDarkMode, setIsDarkMode }) => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        "http://localhost:5000/api/auth/me",
+        `${process.env.REACT_APP_API_URL}/api/auth/me`,
         { name: userName, email: userEmail },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -70,7 +70,7 @@ const FacultyDashboard = ({ isDarkMode, setIsDarkMode }) => {
     try {
       const token = localStorage.getItem("token");
       const headers = { Authorization: `Bearer ${token}` };
-      await axios.patch(`http://localhost:5000/api/issues/${id}/status`, { status: newStatus }, { headers });
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/issues/${id}/status`, { status: newStatus }, { headers });
       setIssues(prev => prev.map(i => i._id === id ? { ...i, status: newStatus } : i));
     } catch (err) {
       console.error("Error updating status:", err.response?.data || err.message);
