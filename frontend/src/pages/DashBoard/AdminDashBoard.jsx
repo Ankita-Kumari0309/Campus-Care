@@ -27,7 +27,7 @@ const AdminDashboard = ({ isDarkMode, setIsDarkMode }) => {
     try {
       const token = localStorage.getItem("token");
       const headers = { Authorization: `Bearer ${token}` };
-      const res = await axios.get("http://localhost:5000/api/issues/all", { headers });
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/issues/all`, { headers });
       setIssues(res.data);
     } catch (err) {
       console.error("Error fetching issues:", err.response?.data || err.message);
@@ -38,7 +38,7 @@ const AdminDashboard = ({ isDarkMode, setIsDarkMode }) => {
   const fetchProfile = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/auth/me", {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUserName(res.data.name);
@@ -55,7 +55,7 @@ const AdminDashboard = ({ isDarkMode, setIsDarkMode }) => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.put(
-        "http://localhost:5000/api/auth/me",
+        `${process.env.REACT_APP_API_URL}/api/auth/me`,
         { name: userName, email: userEmail },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -73,7 +73,7 @@ const AdminDashboard = ({ isDarkMode, setIsDarkMode }) => {
       const token = localStorage.getItem("token");
       const headers = { Authorization: `Bearer ${token}` };
       await axios.patch(
-        `http://localhost:5000/api/issues/${id}/status`,
+        `${process.env.REACT_APP_API_URL}/api/issues/${id}/status`,
         { status: newStatus },
         { headers }
       );
