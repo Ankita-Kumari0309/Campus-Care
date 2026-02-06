@@ -1,0 +1,142 @@
+.signup-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Layout */
+.signup-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Card */
+.signup-card {
+  width: 420px;
+  max-width: 95%;
+  background-color: var(--card-bg);
+  padding: 40px 35px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.signup-card h2 {
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 25px;
+}
+
+/* Inputs */
+.input-group {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 30px;
+  border: 1px solid var(--card-border);
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.input-group label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  background-color: var(--card-bg);
+  padding: 0 6px;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group select:focus + label,
+.input-group select:not([value=""]) + label {
+  top: -8px;
+  font-size: 0.7rem;
+  color: var(--btn-bg);
+}
+
+/* Password hint */
+.password-hint {
+  font-size: 0.75rem;
+  text-align: left;
+  margin: -10px 0 15px 10px;
+  opacity: 0.7;
+}
+
+/* Error */
+.error-box {
+  background: rgba(255, 0, 0, 0.08);
+  color: #ff4d4d;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+/* Button */
+.signup-btn {
+  width: 100%;
+  padding: 13px;
+  border-radius: 30px;
+  border: none;
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signup-btn:hover:not(:disabled) {
+  background-color: var(--btn-hover);
+  transform: translateY(-2px);
+}
+
+.signup-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Footer text */
+.login-text {
+  margin-top: 18px;
+  font-size: 0.85rem;
+}
+
+.login-text span {
+  color: var(--btn-bg);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-text span:hover {
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .signup-card {
+    padding: 30px 22px;
+  }
+}

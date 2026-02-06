@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Care</title>
+
+    <!-- Critical inline dark mode script -->
+    <script>
+      (function() {
+        const darkMode = localStorage.getItem("darkMode") === "true";
+        document.documentElement.className = darkMode ? "dark-mode" : "light-mode";
+        document.documentElement.style.backgroundColor = darkMode ? "#121212" : "#fefefe";
+        document.documentElement.style.color = darkMode ? "#f1f1f1" : "#222";
+      })();
+    </script>
+
+    <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

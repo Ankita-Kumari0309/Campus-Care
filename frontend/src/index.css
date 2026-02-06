@@ -1,0 +1,36 @@
+/* Default fallback for body & html */
+html, body {
+  background-color: #121212; /* Dark mode default */
+  color: #f1f1f1;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Dark / Light classes */
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+  --section-bg: #1f1f1f;
+  --card-bg: rgba(30,30,30,0.85);
+  --btn-bg: #2196F3;
+  --btn-color: #fff;
+  --btn-hover: #0b7dda;
+}
+
+.light-mode {
+  --bg-color: #fefefe;
+  --text-color: #222;
+  --section-bg: #ffffff;
+  --card-bg: rgba(255,255,255,0.8);
+  --btn-bg: #4CAF50;
+  --btn-color: #fff;
+  --btn-hover: #45a049;
+}
+
+/* Apply to body */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}

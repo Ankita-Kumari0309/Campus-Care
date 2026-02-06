@@ -1,0 +1,248 @@
+.footer {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #eaeaea;
+  padding: 50px 30px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Brand Section */
+.footer-brand {
+  max-width: 420px;
+}
+
+.footer-logo {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 12px;
+}
+
+.footer-brand h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.footer-brand p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #cfd8dc;
+}
+
+/* Credits Section */
+.footer-credits {
+  text-align: right;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-credits strong {
+  color: #ffffff;
+}
+
+.sub-team {
+  font-size: 0.85rem;
+  color: #b0bec5;
+}
+
+.powered {
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.powered span {
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  text-align: center;
+  font-size: 0.85rem;
+  color: #b0bec5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-credits {
+    text-align: center;
+  }
+}
+/* Footer.jsx updates */
+.footer-upcoming-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+/* Chatbot Floating Icon */
+.chat-icon {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  background-color: #4CAF50; /* green color */
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+/* Hover animation for attention */
+.chat-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Chat Window */
+.chat-window {
+  position: fixed;
+  bottom: 150px; /* slightly above icon */
+  right: 30px;
+  width: 300px;
+  max-height: 400px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* Chat Header */
+.chat-header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-icon {
+  cursor: pointer;
+}
+
+/* Chat Messages */
+.chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+}
+
+.chat-message {
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  max-width: 80%;
+  word-wrap: break-word;
+  font-size: 0.9rem;
+}
+
+.chat-message.user {
+  background-color: #e0f7fa;
+  align-self: flex-end;
+}
+
+.chat-message.bot {
+  background-color: #f1f1f1;
+  align-self: flex-start;
+}
+
+/* Chat Input */
+.chat-input {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-bottom-left-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.chat-input button {
+  padding: 8px 12px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-bottom-right-radius: 12px;
+  font-weight: 500;
+}
+
+/* Footer Upcoming Features Button */
+.footer-upcoming-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer-upcoming-btn:hover {
+  background-color: #1976d2;
+}
+
+/* Dark Mode Chatbot */
+body.dark-mode .chat-window {
+  background-color: #2c3e50; /* dark background */
+  color: #ecf0f1;            /* default text */
+}
+
+body.dark-mode .chat-message.bot {
+  background-color: #34495e;
+  color: #ecf0f1;
+}
+
+body.dark-mode .chat-message.user {
+  background-color: #36920c;
+  color: white;
+}
+
+body.dark-mode .chat-input {
+  border-top: 1px solid #555;
+}
+
+body.dark-mode .chat-input input {
+  background-color: #3a4b5c;
+  color: #ecf0f1;
+}
+
+body.dark-mode .chat-input button {
+  background-color: #16a085;
+}

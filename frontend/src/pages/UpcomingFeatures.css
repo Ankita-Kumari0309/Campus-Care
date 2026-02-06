@@ -1,0 +1,71 @@
+/* src/pages/UpcomingFeatures.css */
+
+.upcoming-features-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding-bottom: 60px; /* space for footer */
+  font-family: 'Poppins', sans-serif;
+}
+
+.features-header {
+  text-align: center;
+  padding: 50px 20px 30px;
+}
+
+.features-header h1 {
+  font-size: 2.5rem;
+  color: #1976d2; /* professional blue */
+  margin-bottom: 10px;
+}
+
+.features-header p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px 50px;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #1976d2;
+}
+
+.feature-card.upcoming .feature-status {
+  color: #ff9800;
+  font-weight: 500;
+}
+
+.feature-card.planned .feature-status {
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.feature-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.feature-status {
+  font-size: 0.9rem;
+}
